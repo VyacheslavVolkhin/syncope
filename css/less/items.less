@@ -1,44 +1,283 @@
 /* ----------------------------------- *\
 			items styles
 \* ----------------------------------- */
-.item-photo {
+.item-tile-price {
+    display: flex;
+    align-items: center;
+    width: 160px;
+    height: 160px;
+    background: url(../img/price.svg) center no-repeat;
+    background-size: 100% auto;
+    padding-bottom: 15px;
+    .tile-title-wrap {
+        display: block;
+        text-align: center;
+        font-size: 35px;
+        line-height: 1;
+        font-weight: 600;
+        color: var(--clr-base);
+        width: 100%;
+    }
+    .tile-title {
+        display: block;
+        font-size: 44/35em;
+        margin: 0;
+        padding: 0;
+        color: var(--clr-att-hover);
+    }
+    * {
+        .ft;
+    }
+}
+.item-tile-partner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 90px;
+    color: var(--clr-title);
+    font-size: 20px;
+    line-height: 30px;
+    text-align: center;
+    text-transform: uppercase;
+    border: 1px solid #E5E5E5;
+    position: relative;
+    overflow: hidden;
+    transition: all ease 0.2s;
+    .ft;
+    &:hover {
+        color: var(--clr-att);
+        border-color: var(--clr-att);
+    }
+    img {
+        max-width: 100%;
+        max-height: 100%;
+        display: block;
+    }
+}
+.item-tile-team {
+    width: 66px;
+    height: 66px;
+    margin-top: -33px;
+    margin-left: -33px;
+    padding: 8px;
+    font-size: 14px;
+    line-height: 20px;
+    position: relative;
+    color: var(--clr-light);
+    background-color: #fff;
+    box-shadow: 0px 9.44444px 19.4444px rgba(24, 255, 255, 0.15);
+    cursor: pointer;
+    border-radius: 33px;
+    transition: all ease 0.2s;
+    &.active {
+        box-shadow: none;
+        color: var(--clr-light);
+        background: none;
+        .tile-info-wrap {
+            opacity: 1;
+            pointer-events: inherit;
+        }
+    }
+    .tile-photo {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        z-index: 3;
+    }
+    .tile-info-wrap {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: absolute;
+        pointer-events: none;
+        opacity: 0;
+        white-space: nowrap;
+        background: linear-gradient(99.84deg, #FBFBFF 6.9%, rgba(255, 255, 255, 0.83) 84.24%);
+        box-shadow: 0px 17px 35px rgba(24, 255, 255, 0.15);
+        top: 0;
+        left: 0;
+        bottom: 0;
+        padding: 0 30px 0 74px;
+        border-radius: 33px;
+    }
+    .tile-info-title {
+        display: block;
+        font-size: 20px;
+        line-height: 30px;
+        .ft;
+    }
+}
+.item-tile-bonus {
+    text-align: center;
+    display: block;
+    position: relative;
+    line-height: 1.25;
+    .tile-ico {
+        width: 65px;
+        height: 65px;
+        margin: 0 auto 30px auto;
+    }
+    .tile-title {
+        display: block;
+        .ft;
+    }
+}
+.item-tile-point {
+    font-size: 14px;
+    line-height: 20/14;
+    color: var(--clr-base);
+    display: block;
+    position: relative;
+    &:hover {
+        color: var(--clr-base);
+        .tile-photo {
+            img {
+                filter: none;
+            }
+        }
+        .tile-ico {
+            img {
+                opacity: 0;
+                &.img-hover {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+    .tile-info-row {
+        display: block;
+        position: relative;
+        padding-left: 39px;
+        margin-bottom: 5px;
+        min-height: 39px;
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+    .tile-info-wrap {
+        display: block;
+        padding: 10px 0 0 0;
+    }
+    .tile-title {
+        font-size: 18px;
+        line-height: 1.34;
+        font-weight: 400;
+        margin: 0;
+        display: block;
+        color: var(--clr-title);
+        .ft;
+    }
+    .tile-subtitle {
+        display: block;
+        font-weight: 400;
+        margin: 0;
+        font-size: 1em;
+    }
+    .tile-ico {
+        width: 24px;
+        height: 40px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        overflow: visible;
+        img {
+            width: 100%;
+            margin: 0;
+            bottom: auto;
+            right: auto;
+            transition: opacity ease 0.2s;
+            &.img-hover {
+                opacity: 0;
+            }
+        }
+    }
+    .tile-photo {
+        max-height: 300px;
+        img {
+            filter: grayscale(100%);
+            transition: all ease 0.2s;
+        }
+        &:before {
+            padding-top: 76.6%;
+        }
+    }
+}
+.item-tile-gallery {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    &.tile-photo {
+        &:before {
+            padding-top: 100%;
+        }
+    }
+}
+.elm-photo, .tile-photo {
     display: block;
     position: relative;
     overflow: hidden;
     text-decoration: none;
     line-height: 1;
+    transform: translateZ(0);
+    &.photo-main {
+        border: 1px solid #f00;
+        width: 300px;
+        height: 300px;
+    }
     &:before {
         content: "";
-        display: block;
+        display: none;
         padding-top: 100%;
     }
     img {
         display: block;
-        position: absolute;
-        top: 0;
-        left: 0;
+        position: relative;
         width: 100%;
     }
-    &.photo-full {
+    &.photo-cover {
         &:before {
-            display: none;
+            display: block;
         }
         img {
-            position: relative;
-            top: auto;
-            bottom: auto;
-            left: auto;
-            right: auto;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+    &.photo-contain {
+        &:before {
+            display: block;
+        }
+        img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            margin: auto;
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
         }
     }
 }
-.elm-ico, .button-ico, .menu-ico, .frm-ico {
+.elm-price, .tile-price {
+    white-space: nowrap;
+    &.price-old {
+        text-decoration: line-through;
+    }
+}
+.elm-ico, .button-ico, .menu-ico, .frm-ico, .tab-ico, .tile-ico {
     display: block;
     position: relative;
     overflow: hidden;
     width: 40px;
     height: 40px;
-    img, .i, svg {
+    img, [class*="icon-"], .i, svg {
         display: block;
         position: absolute;
         top: 0;
@@ -48,5 +287,91 @@
         margin: auto;
         max-width: 100%;
         max-height: 100%;
+    }
+}
+.elm-overlay {
+    display: none;
+    animation: fadein ease 0.2s;
+    background: fade(#000, 80);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 120;
+    &.active {
+        display: block;
+    }
+}
+@media (min-width: 1024px) {
+    .item-tile-price {
+        width: 217px;
+        height: 217px;
+        .tile-title-wrap {
+            font-size: 48px;
+            .tile-title {
+                font-size: 60px;
+            }
+        }
+    }
+    .item-tile-team {
+        width: 124px;
+        height: 124px;
+        border-radius: 62px;
+        background: transparent;
+        box-shadow: none;
+        padding: 18px;
+        margin: -62px 0 0 -62px;
+        &:hover {
+            box-shadow: none;
+            color: var(--clr-light);
+            background: none;
+            .tile-info-wrap {
+                opacity: 1;
+                pointer-events: inherit;
+            }
+        }
+        .tile-photo {
+            width: 88px;
+            height: 88px;
+        }
+        .tile-info-wrap {
+            padding-left: 132px;
+            padding-right: 50px;
+            border-radius: 62px;
+            opacity: 1;
+            pointer-events: inherit;
+        }
+    }
+    .item-tile-bonus {
+        font-size: 2rem;
+        line-height: 1.5;
+        .tile-ico {
+            margin-bottom: 3rem;
+            width: 10rem;
+            height: 10rem;
+        }
+    }
+    .item-tile-point {
+        font-size: 16px;
+        line-height: 26/16;
+        .tile-info-wrap {
+            padding-top: 16px;
+        }
+        .tile-info-row {
+            margin-bottom: 10px;
+        }
+        .tile-title {
+            font-size: 20px;
+            line-height: 30/20;
+        }
+        .tile-subtitle {
+            
+        }
+        .tile-photo {
+            &:before {
+                padding-top: 69.6%;
+            }
+        }
     }
 }
